@@ -5,13 +5,15 @@ import ThreeGlobe from "three-globe";
 import { useThree, Canvas, extend } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import countries from "@/data/globe.json";
+
+
+extend({ ThreeGlobe });
+
 declare module "@react-three/fiber" {
   interface ThreeElements {
     threeGlobe: ReactThreeFiber.Object3DNode<ThreeGlobe, typeof ThreeGlobe>;
   }
 }
-
-extend({ ThreeGlobe });
 
 const RING_PROPAGATION_SPEED = 3;
 const aspect = 1.2;
@@ -68,7 +70,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
         color: (t: number) => string;
         lat: number;
         lng: number;
-      }[]
+      }[] 
     | null
   >(null);
 

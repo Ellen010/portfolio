@@ -1,12 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { IoCopyOutline } from "react-icons/io5";
-import Lottie from "react-lottie";
+import dynamic from "next/dynamic";
 import { cn } from "@/lib/utils";
 import { BackgroundGradientAnimation } from "./GradientBg";
 import GridGlobe from "./GridGlobe";
-import animationData from "@/data/confetti.json";
 import MagicButton from "../MagicButton";
 
+
+const Lottie = dynamic(() => import("react-lottie"), { ssr: false });
 export const BentoGrid = ({
   className,
   children,
@@ -49,15 +50,20 @@ export const BentoGridItem = ({
   const rightLists = ["VueJS", "NuxtJS", "GraphQL"];
 
   const [copied, setCopied] = useState(false);
+  const [defaultOptions, setDefaultOptions] = useState<any>(null);
 
-  const defaultOptions = {
-    loop: copied,
-    autoplay: copied,
-    animationData: animationData,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
+  useEffect(() => {
+    import("@/data/confetti.json").then((data) => {
+      setDefaultOptions({
+        loop: copied,
+        autoplay: copied,
+        animationData: data.default,
+        rendererSettings: {
+          preserveAspectRatio: "xMidYMid slice",
+        },
+      });
+    });
+  }, [copied]);
 
   const handleCopy = () => {
     const text = "ewlen04@gmail.com";
@@ -82,23 +88,21 @@ export const BentoGridItem = ({
           {img && (
             <img
               src={img}
-              alt={img}
-              className={cn(imgClassName, "object-cover object-center ")}
+              alt="Bento Grid Image"
+              className={cn(imgClassName, "object-cover object-center")}
             />
           )}
         </div>
-        <div
-          className={`absolute right-0 -bottom-5 ${id === 5 && "w-full opacity-80"
-            } `}
-        >
+        <div className={`absolute right-0 -bottom-5 ${id === 5 ? "w-full opacity-80" : ""}`}>
           {spareImg && (
             <img
               src={spareImg}
-              alt={spareImg}
+              alt="Spare Image"
               className="object-cover object-center w-full h-full"
             />
           )}
         </div>
+
         {id === 6 && (
           <BackgroundGradientAnimation>
             <div className="absolute z-50 inset-0 flex items-center justify-center text-white font-bold px-4 pointer-events-none text-3xl text-center md:text-4xl lg:text-7xl"></div>
@@ -114,9 +118,7 @@ export const BentoGridItem = ({
           <div className="font-sans font-extralight md:max-w-32 md:text-xs lg:text-base text-sm text-[#C1C2D3] z-10">
             {description}
           </div>
-          <div
-            className={`font-sans text-lg lg:text-3xl max-w-96 font-bold z-10`}
-          >
+          <div className="font-sans text-lg lg:text-3xl max-w-96 font-bold z-10">
             {title}
           </div>
 
@@ -134,10 +136,10 @@ export const BentoGridItem = ({
                     {item}
                   </span>
                 ))}
-                <span className="lg:py-4 lg:px-3 py-4 px-3  rounded-lg text-center bg-[#10132E]"></span>
+                <span className="lg:py-4 lg:px-3 py-4 px-3 rounded-lg text-center bg-[#10132E]"></span>
               </div>
               <div className="flex flex-col gap-3 md:gap-3 lg:gap-8">
-                <span className="lg:py-4 lg:px-3 py-4 px-3  rounded-lg text-center bg-[#10132E]"></span>
+                <span className="lg:py-4 lg:px-3 py-4 px-3 rounded-lg text-center bg-[#10132E]"></span>
                 {rightLists.map((item, i) => (
                   <span
                     key={i}
@@ -150,13 +152,11 @@ export const BentoGridItem = ({
               </div>
             </div>
           )}
+
           {id === 6 && (
             <div className="mt-5 relative">
-              <div
-                className={`absolute -bottom-5 right-0 ${copied ? "block" : "block"
-                  }`}
-              >
-                <Lottie options={defaultOptions} height={200} width={400} />
+              <div className={`absolute -bottom-5 right-0 ${copied ? "block" : "hidden"}`}>
+                {defaultOptions && <Lottie options={defaultOptions} height={200} width={400} />}
               </div>
 
               <MagicButton
