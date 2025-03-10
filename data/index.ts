@@ -18,7 +18,7 @@ export const navItems = [
     },
     {
       id: 2,
-      title: "I'm very flexible with time zone communications",
+      title: "With experience as a frontend and full-stack developer, I have built modern, high-performance web applications using technologies like Next.js, Tailwind CSS, and React Native. I crafted engaging user interfaces with custom animations in Three.js and GSAP while optimizing performance through Sentry analytics.",
       description: "",
       className: "lg:col-span-2 md:col-span-3 md:row-span-2",
       imgClassName: "",
