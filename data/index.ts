@@ -18,7 +18,7 @@ export const navItems = [
     },
     {
       id: 2,
-      title: "With experience as a frontend and full-stack developer, I have built modern, high-performance web applications using technologies like Next.js, Tailwind CSS, and React Native. I crafted engaging user interfaces with custom animations in Three.js and GSAP while optimizing performance through Sentry analytics.",
+      title: "With experience as a frontend and full-stack developer, I have built modern, high-performance web applications using technologies like Next.js, Tailwind CSS, and React Native.",
       description: "",
       className: "lg:col-span-2 md:col-span-3 md:row-span-2",
       imgClassName: "",
@@ -29,7 +29,7 @@ export const navItems = [
     {
       id: 3,
       title: "My tech stack",
-      description: "I constantly try to improve",
+      description: " I crafted engaging user interfaces with custom animations in Three.js and GSAP while optimizing performance through Sentry analytics.",
       className: "lg:col-span-2 md:col-span-3 md:row-span-2",
       imgClassName: "",
       titleClassName: "justify-center",
@@ -39,7 +39,7 @@ export const navItems = [
     {
       id: 4,
       title: "Tech enthusiast with a passion for development.",
-      description: "",
+      description: "My expertise lies in creating seamless, interactive experiences while ensuring scalability and efficiency.",
       className: "lg:col-span-2 md:col-span-3 md:row-span-1",
       imgClassName: "",
       titleClassName: "justify-start",
