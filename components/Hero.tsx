@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import { IoCopyOutline } from "react-icons/io5";
 import dynamic from "next/dynamic";
 import { cn } from "@/lib/utils";
+import { photo } from "@/data";
 
 
 const Hero = () => {
@@ -34,6 +35,15 @@ const Hero = () => {
             Full-stack Next.js Developer based in France
             <span className="block my-10">Elena Welty</span>
           </p>
+          <div className="flex pr-50">
+          <img
+                src={photo}
+                alt="photo"
+                className="lg:w-32 md:w-20 w-16"
+              />
+        
+          </div>
+            
 
           <a href="#about">
             <MagicButton

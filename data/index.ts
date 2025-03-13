@@ -215,3 +215,5 @@ export const navItems = [
       img: "/link.svg",
     },
   ];
+
+  export const photo = "/photo.png";
