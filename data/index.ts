@@ -97,7 +97,7 @@ export const navItems = [
     {
       id: 4,
       title: "To-do app",
-      des: "Effortless task app",
+      des: "Effortless task management app",
       img: "/todo.png",
       iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
       link: "https://todo-app-five-orpin-79.vercel.app/",
