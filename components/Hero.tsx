@@ -14,7 +14,7 @@ const Hero = () => {
   return (
     <div >
       <div className="w-full absolute left-0 -bottom-72 min-h-96">
-      <img
+        <img
           src="/footer-grid.svg"
           alt="grid"
           className="w-full h-full opacity-50 "
@@ -30,31 +30,32 @@ const Hero = () => {
             words="Smart Solutions for Creating a Personalized Online Presence"
             className="text-center text-[40px] text-white md:text-5xl lg:text-6xl"
           /> */}
-        
+
           <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
             Full-stack Next.js Developer based in France
             <span className="block my-10">Elena Welty</span>
           </p>
-          <div className="flex pr-50">
-          <img
-                src={photo}
-                alt="photo"
-                className="lg:w-32 md:w-20 w-16"
-              />
-        
-          </div>
-            
+          <div className="flex items-center gap-10 mb-70">
 
-          <a href="#about">
-            <MagicButton
-              title="Show my projects"
-              icon={<FaLocationArrow />}
-              position="right"
-            />
-          </a>
-          <div className="flex justify-center my-20 z-10">
-           <GridGlobe />
-           </div>
+  <div>
+    <img src={photo} alt="photo" className="lg:w-60 md:w-50 w-30 mb-20" />
+  </div>
+
+  <div className="relative" style={{ transform: "translateY(-50%)" }}>
+  <a href="#about">
+    <MagicButton
+      title="Show my projects"
+      icon={<FaLocationArrow />}
+      position="right"
+    />
+  </a>
+  </div>
+
+  <div className="flex justify-center my-20 z-10">
+    <GridGlobe />
+  </div>
+</div>
+
         </div>
       </div>
     </div>
